@@ -501,7 +501,7 @@ class prestations_sociales(Variable):
 class prestations_familiales(Variable):
     value_type = float
     entity = Famille
-    label = u"Prestations familiales"
+    label = u"Prestations familiales nettes"
     reference = "http://www.social-sante.gouv.fr/informations-pratiques,89/fiches-pratiques,91/prestations-familiales,1885/les-prestations-familiales,12626.html"
     definition_period = YEAR
 
@@ -512,8 +512,9 @@ class prestations_familiales(Variable):
         aeeh = famille('aeeh', period, options = [ADD])
         paje = famille('paje', period, options = [ADD])
         asf = famille('asf', period, options = [ADD])
+        crds_pfam = famille('crds_pfam', period, options = [ADD])
 
-        return af + cf + ars + aeeh + paje + asf
+        return af + cf + ars + aeeh + paje + asf - crds_pfam
 
 
 class minimum_vieillesse(Variable):
@@ -530,7 +531,7 @@ class minimum_vieillesse(Variable):
 class minima_sociaux(Variable):
     value_type = float
     entity = Famille
-    label = u"Minima sociaux"
+    label = u"Minima sociaux nets"
     reference = "http://fr.wikipedia.org/wiki/Minima_sociaux"
     definition_period = YEAR
 
@@ -548,8 +549,9 @@ class minima_sociaux(Variable):
         rsa = famille('rsa', period, options = [ADD])
         ppa = famille('ppa', period, options = [ADD])
         psa = famille('psa', period, options = [ADD])
+        crds_mini = famille('crds_mini', period, options = [ADD])
 
-        return aah + caah + minimum_vieillesse + rsa + aefa + api + ass + psa + ppa
+        return aah + caah + minimum_vieillesse + rsa + aefa + api + ass + psa + ppa - crds_mini
 
 
 class aides_logement(Variable):
@@ -563,8 +565,9 @@ class aides_logement(Variable):
         apl = famille('apl', period, options = [ADD])
         als = famille('als', period, options = [ADD])
         alf = famille('alf', period, options = [ADD])
+        crds_logement = famille('crds_logement', period, options = [ADD])
 
-        return apl + als + alf
+        return apl + als + alf - crds_logement
 
 
 class irpp_economique(Variable):
