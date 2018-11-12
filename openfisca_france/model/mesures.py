@@ -482,7 +482,7 @@ class prelevements_sociaux_menage(Variable):
         csg = menage.sum(csg_i)
         crds_hors_presta_i = menage.members('crds_hors_prestations', period, options = [ADD])
         crds_hors_prestations = menage.sum(crds_hors_presta_i)
-        
+
         prelevements_sociaux_revenus_capital_hors_csg_crds_i = menage.members.foyer_fiscal('prelevements_sociaux_revenus_capital_hors_csg_crds', period, options = [ADD])
         prelevements_sociaux_revenus_capital_hors_csg_crds = menage.sum(prelevements_sociaux_revenus_capital_hors_csg_crds_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)
 
@@ -527,7 +527,7 @@ class prestations_familiales(Variable):
         asf = famille('asf', period, options = [ADD])
         crds_pfam = famille('crds_pfam', period, options = [ADD])
 
-        return af + cf + ars + aeeh + paje + asf - crds_pfam
+        return af + cf + ars + aeeh + paje + asf + crds_pfam
 
 
 class minimum_vieillesse(Variable):
@@ -564,7 +564,7 @@ class minima_sociaux(Variable):
         psa = famille('psa', period, options = [ADD])
         crds_mini = famille('crds_mini', period, options = [ADD])
 
-        return aah + caah + minimum_vieillesse + rsa + aefa + api + ass + psa + ppa - crds_mini
+        return aah + caah + minimum_vieillesse + rsa + aefa + api + ass + psa + ppa + crds_mini
 
 
 class aides_logement(Variable):
@@ -580,7 +580,7 @@ class aides_logement(Variable):
         alf = famille('alf', period, options = [ADD])
         crds_logement = famille('crds_logement', period, options = [ADD])
 
-        return apl + als + alf - crds_logement
+        return apl + als + alf + crds_logement
 
 
 class irpp_economique(Variable):
