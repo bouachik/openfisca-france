@@ -1,5 +1,19 @@
 # Changelog
 
+## 29.4.0 [#1207](https://github.com/openfisca/openfisca-france/pull/1207)
+
+* Breaking change.
+* Périodes concernées : toutes.
+* Zones impactées:
+  - `prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py`
+  - `mesures.py`
+  - `prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py`
+  - `prestations/aides_logement.py`
+* Détails :
+  - Ajoute des mesures de revenu super brut au niveau du ménage
+  - Renomme des variables: `impots_directs` par `impots_directs_menage`, `revenu_disponible` par `revenu_disponible_menage`
+
+
 ### 29.3.10 [#1208](https://github.com/openfisca/openfisca-france/pull/1208)
 
 * Changement mineur.
